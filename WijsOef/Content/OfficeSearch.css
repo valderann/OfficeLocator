@@ -1,0 +1,70 @@
+﻿ .officeFilterContainer{
+     padding:10px;
+     background-color:#D62828;
+     color:#fff;
+ }
+
+#gmap{
+    width: 100%;
+    height: 250px;
+    border: 1px solid #ccc;
+
+}  
+#gmapContainer{
+    padding:10px;
+    background-color:#eee;
+     margin-bottom:15px;
+}
+
+.office {
+    margin-bottom:5px; border-bottom:1px solid #eee;
+}
+
+.officeFilterContainer > h1 {
+color:#fff;
+margin-bottom:10px;
+}
+
+#officeErrors {
+    margin-top:10px;
+    background-color:#eee;
+    padding:5px;
+    border:1px solid #ccc;
+}
+
+.officeSearchFilters {
+    margin-top:15px;
+}
+
+.officeSearchFilters>div>label,.officeSearchFilters>div>input{
+    float:left;
+    margin-right:10px;
+}
+.officeSearchFilters > div {
+    margin-right:10px;
+}
+
+.loader-dropdown {
+      background-image:url('/images/loading.gif');
+      background-repeat:no-repeat;
+      padding-right:20px;
+      background-position: center right;
+}
+
+#officeErrors{display:none;}
+
+#OfficeTemplate{display:none;}
+
+#txtOfficeSearch{
+    color: #9d9d95;
+    border: 3px solid #ccc;
+    padding: .8em .75em .75em;
+    margin: 0;
+    background-color: #fff;
+    -webkit-appearance: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
