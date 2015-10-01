@@ -13,9 +13,16 @@
 <div class="officeFilterContainer">
     <h1>Show offices in the neighborhood of</h1>
     <input type="text" value="@Model.City" placeholder="ex.: Gent" id="txtOfficeSearch" name="txtOfficeSearch" x-webkit-speech />
+    <input type="button" id="cmdSearchButton" value="search" />
     <div class="officeSearchFilters">
-        <div><input type="checkbox" @(Model.IsOpenWeekend ? "checked":"") id="chkIsOpenWeekend" value="1" name="chkIsOpenWeekend" /><label for="chkIsOpenWeekend">Open in weekends</label></div>
-        <div><input name="chkHasSupportDesk" @(Model.HasSupportDesk ? "checked" : "") id="chkHasSupportDesk" type="checkbox" value="1" /><label for="chkHasSupportDesk">With support desk</label></div>
+        <div>
+            <input type="checkbox" @(Model.IsOpenWeekend ? "checked" : "") id="chkIsOpenWeekend" value="1" name="chkIsOpenWeekend" />
+            <label for="chkIsOpenWeekend">Open in weekends</label>
+        </div>
+        <div>
+            <input name="chkHasSupportDesk" @(Model.HasSupportDesk ? "checked" : "") id="chkHasSupportDesk" type="checkbox" value="1" />
+            <label for="chkHasSupportDesk">With support desk</label>
+        </div>
     </div>
     <br style="clear:both" />
 </div>
@@ -33,7 +40,7 @@
         <div class="office" data-bind="attr: { 'data-long': Longitude, 'data-lat':Latitude }">
             <span class="offStreet" data-bind="text: Street"></span><br />
             <span class="offCity" data-bind="text: City"></span><br />
-            <span data-bind="text: Distance"></span> km
+            <span data-bind="text: Distance"></span>
             <div>
                 <span data-bind="if: IsOpenOnWeekends"><span class="icon-large  icon-eye-open" title="Open in weekends"></span></span>
                 <span data-bind="if: HasHelpDesk"><span class="icon-large icon-phone" title="With support desk"></span></span>

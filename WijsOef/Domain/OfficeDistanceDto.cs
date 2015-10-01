@@ -9,7 +9,8 @@ namespace WijsOef.Models
     {
         public string Street { get; set; }
         public string City { get; set; }
-        public int Distance { get; set; }
+        private double DistanceRaw { get; set; }
+        public string Distance { get; set; }
         public bool HasHelpDesk { get; set; }
         public bool IsOpenOnWeekends { get; set; }
         public double Latitude { get; set; }

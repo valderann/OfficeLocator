@@ -16,6 +16,8 @@ namespace WijsOef.Data
         {
             using (var db = new ExcerciseEntities())
             {
+                // Find coordinates in a square instead of a radius to improve performance. 
+                // The index on the latitude and longitude columns will be hit in the database.
                 var boundingBox = Geography.GetBoundingBox(new MapPoint() { Latitude=qry.Latitude,Longitude=qry.Longitude}, qry.Radius);
 
                 var query = db.offices.Where(v =>

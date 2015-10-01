@@ -45,16 +45,25 @@
                     }
                 });
 
-                $("#chkIsOpenWeekend,#chkHasSupportDesk").click(function () {
+                $("#chkIsOpenWeekend,#chkHasSupportDesk,#cmdSearchButton").click(function () {
                     instance.search();
                 });
             };
 
-            OfficeSearchComponentPage.prototype.search = function () {
+            OfficeSearchComponentPage.prototype.setLoader = function () {
                 $("#txtOfficeSearch").addClass("loader-dropdown");
                 $("#txtOfficeSearch").prop("disabled", true);
                 $("#OfficeTemplate").hide();
                 $("#officeErrors").hide();
+            };
+
+            OfficeSearchComponentPage.prototype.searchByCoords = function (lat, long) {
+                this.setLoader();
+                this.officeSearchComponent.getOfficesFromAjax(lat, long, false, false);
+            };
+
+            OfficeSearchComponentPage.prototype.search = function () {
+                this.setLoader();
                 var searchVal = $("#txtOfficeSearch").val();
                 if (searchVal !== "") {
                     this.officeSearchComponent.getNearestOffices(searchVal, $("#chkHasSupportDesk").is(':checked'), $("#chkIsOpenWeekend").is(':checked'));
@@ -67,7 +76,8 @@
                 instance.gmapOffices = new google.maps.Map(document.getElementById("gmap"), mapOptions);
                 instance.gmapOffices.setCenter(new google.maps.LatLng(lat, long));
                 var lIndex = 0;
-                var markets = [];
+                var markers = [];
+
                 $(".office").each(function () {
                     var strLat = $(this).attr("data-lat");
                     var strLong = $(this).attr("data-long");
@@ -85,21 +95,25 @@
                         var marker = new google.maps.Marker({
                             position: myLatlng,
                             map: instance.gmapOffices,
+                            animation: google.maps.Animation.DROP,
                             value: lIndex,
                             title: lAddr
                         });
-                        markets.push(marker);
+                        markers.push(marker);
 
-                        var prevInfowindow;
                         google.maps.event.addListener(marker, 'click', function () {
-                            if (prevInfowindow) {
-                                prevInfowindow.close();
-                            }
-                            prevInfowindow = infowindow;
                             infowindow.open(instance.gmapOffices, marker);
                         });
                         lIndex += 1;
                     }
+                });
+
+                var myPosition = new google.maps.Marker({
+                    icon: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
+                    position: new google.maps.LatLng(lat, long),
+                    map: instance.gmapOffices,
+                    value: lIndex,
+                    title: "Me"
                 });
             };
             return OfficeSearchComponentPage;
@@ -118,8 +132,15 @@ var OfficeSearchViewModel = {
 
 $(document).ready(function () {
     var officeComponentPage = new Scripts.Components.OfficeSearchComponentPage();
+
     if ($("#txtOfficeSearch").val() !== "") {
         officeComponentPage.search();
+    } else {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                officeComponentPage.searchByCoords(position.coords.latitude, position.coords.longitude);
+            });
+        }
     }
 });
 //# sourceMappingURL=OfficeSearchComponentPage.js.map

@@ -51,10 +51,15 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
-    <Compile Include="OfficeTest.cs" />
+    <Compile Include="Mocking\OfficeRepositoryMocking.cs" />
+    <Compile Include="Offices\OfficeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WijsOef.Bussiness\WijsOef.Business.csproj">
+      <Project>{2769f9a1-2ba0-4785-93e3-3be0523c2aab}</Project>
+      <Name>WijsOef.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WijsOef.Data\WijsOef.Data.csproj">
       <Project>{3d6649e9-df7b-4e94-a2a9-df25a1492b41}</Project>
       <Name>WijsOef.Data</Name>
@@ -63,6 +68,7 @@
   <ItemGroup>
     <None Include="App.Config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WijsOef.Data.Domain
+namespace WijsOef.Bussiness.Services
 {
-    /// <summary>
-    /// Remark: Radius in KM
-    /// </summary>
-    public class OfficeQuery
+    public class OfficeBusiness
     {
+        public long Id { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-
-        //Radius in KM
-        public int Radius { get; set; }
         public bool IsOpenInWeekends { get; set; }
-        public bool IsWithSupportDesk { get; set; }
+        public bool HasSupportDesk { get; set; }
     }
 }

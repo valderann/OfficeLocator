@@ -25,7 +25,7 @@
             }
             OfficeSearchComponent.prototype.getOfficesFromAjax = function (latitude, longitude, hasSupport, isOpenInWeekends) {
                 var instance = this;
-                $.ajax({
+                var request = $.ajax({
                     type: "GET",
                     url: "/Office/GetNearestOffices?latitude=" + latitude + "&longitude=" + longitude + "&IsOpenInWeekends=" + isOpenInWeekends + "&isWithSupportDesk=" + hasSupport,
                     dataType: 'json',
@@ -36,7 +36,10 @@
                             instance.Settings.OnData(data, latitude, longitude);
                         }
                     },
-                    fail: function (jqXHR, textStatus, error) {
+                    error: function () {
+                        instance.Settings.OnError(1 /* AjaxError */);
+                    },
+                    fail: function (jqXHR, textStatus) {
                         instance.Settings.OnError(1 /* AjaxError */);
                     },
                     complete: function () {

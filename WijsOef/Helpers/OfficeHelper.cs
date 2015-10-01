@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WijsOef.Bussiness.Domain;
 using WijsOef.Data.Data;
 using WijsOef.Data.Infrastructure.Location;
 using WijsOef.Models;
@@ -10,20 +11,24 @@ namespace WijsOef.Helpers
 {
     public static class OfficeHelper
     {
-        public static IList<OfficeDistanceDto> Convert(this IList<office> offices,MapPoint currentLocation=null)
+        private static string ReadfriendlyDistance(double distance)
+        {
+            if (distance < 1) { return (int)(distance*1000)+" m"; }
+            else { return( (int)distance).ToString()+" km";}
+        }
+
+        public static IList<OfficeDistanceDto> ConvertToJson(this IList<OfficeBusinessDistance> offices)
         {
             return offices.Select(t =>
                 new OfficeDistanceDto()
                 {
-                    City = t.city.ToUpper(),
-                    Street = t.street.ToLower(),
-                    Latitude=t.latitude,
-                    Longitude=t.longitude,
-                    HasHelpDesk = (t.has_support_desk == "Y"),
-                    IsOpenOnWeekends=(t.is_open_in_weekends=="Y"),
-                    Distance = currentLocation==null ? 0 : (int)Geography.HaversineDistance(new MapPoint() { Latitude = t.latitude, Longitude = t.longitude },
-                                                           currentLocation, 
-                                                           Geography.DistanceUnit.Kilometers) 
+                    City = t.City.ToUpper(),
+                    Street = t.Street.ToLower(),
+                    Latitude=t.Latitude,
+                    Longitude=t.Longitude,
+                    HasHelpDesk = t.HasSupportDesk,
+                    IsOpenOnWeekends=t.IsOpenInWeekends,
+                    Distance=ReadfriendlyDistance(t.Distance)
                 }
             ).ToList();
         }

@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WijsOef.Bussiness;
+using WijsOef.Bussiness.Services;
 using WijsOef.Data;
 using WijsOef.Data.Repositories;
+using WijsOef.Test.Mocking;
 
 namespace WijsOef.Test
 {
     public class BaseTest
     {
-        protected IOfficeRepository OfficeRepository{get;set;}
+        protected IOfficeService OfficeService{get;set;}
         public BaseTest()
         {
-            OfficeRepository = new OfficeRepository();
+            OfficeService = new OfficeService(new OfficeRepositoryMocking());
         }
     }
 }

@@ -26,7 +26,7 @@
             public getOfficesFromAjax(latitude: number, longitude: number, hasSupport: boolean, isOpenInWeekends: boolean)
             {
                     var instance = this;
-                    $.ajax({
+                    var request =$.ajax({
                         type: "GET",
                         url: "/Office/GetNearestOffices?latitude=" + latitude + "&longitude=" + longitude +
                             "&IsOpenInWeekends=" + isOpenInWeekends + "&isWithSupportDesk=" + hasSupport,
@@ -38,13 +38,15 @@
                                 instance.Settings.OnData(data,latitude,longitude);
                             }
                         }
-                        , fail:(jqXHR, textStatus, error) => {
+                        , error: () => { instance.Settings.OnError(OfficeSearchErrors.AjaxError); }
+                        , fail:(jqXHR, textStatus) => {
                             instance.Settings.OnError(OfficeSearchErrors.AjaxError);
                         }
                         , complete: () => {
                             instance.Settings.OnComplete();
                         }
                     });
+
             }
 
             public getNearestOffices(city: string,hasSupport:boolean,isOpenInWeekends:boolean) {

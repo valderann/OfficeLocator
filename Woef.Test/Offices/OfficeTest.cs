@@ -9,7 +9,8 @@ namespace WijsOef.Test
         [TestMethod]
         public void GetOfficesTest()
         {
-           // OfficeRepository.GetNearestOffices(new WijsOef.Data.Domain.OfficeQuery() { Longitude = 2, Latitude = 5 });
+           var results=OfficeService.GetNearestOffices(new WijsOef.Data.Domain.OfficeQuery() {Latitude = 2 , Longitude = 5, Radius=20 });
+           Assert.IsTrue(results.Count==2);
         }
     }
 }
