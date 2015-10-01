@@ -1,7 +1,7 @@
 ﻿@Scripts.Render("~/bundles/knockout")
 @model WijsOef.Models.OfficeSearchModel
 @{
-    ViewBag.Title = "Find our nearest office";
+    ViewBag.Title = !String.IsNullOrEmpty(Model.City) ?  "Find an office near " + Model.City : "Find our nearest office";
     ViewBag.Description = "";
 }
 @section scripts

@@ -54,7 +54,7 @@
                     if (e.which === 13) {
                         instance.search();
                     }
-           });
+            });
 
             $("#chkIsOpenWeekend,#chkHasSupportDesk,#cmdSearchButton").click(() => {
                 instance.search();
@@ -69,7 +69,7 @@
             $("#officeErrors").hide();
         }
 
-        public searchByCoords(lat:number,long:number)
+        public searchByCoords(lat:number, long:number)
         {
             this.setLoader();
             this.officeSearchComponent.getOfficesFromAjax(lat, long, false, false);
@@ -114,6 +114,7 @@
                         });
 
                         var marker = new google.maps.Marker({
+                            icon: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
                             position: myLatlng,
                             map: instance.gmapOffices,
                             animation: google.maps.Animation.DROP,
