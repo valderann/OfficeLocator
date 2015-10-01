@@ -13,8 +13,8 @@ namespace WijsOef.Helpers
     {
         private static string ReadfriendlyDistance(double distance)
         {
-            if (distance < 1) { return (int)(distance*1000)+" m"; }
-            else { return( (int)distance).ToString()+" km";}
+            if (distance < 1) { return (int)(distance*1000) + " m"; }
+            else { return( (int)distance).ToString() + " km";}
         }
 
         public static IList<OfficeDistanceDto> ConvertToJson(this IList<OfficeBusinessDistance> offices)
