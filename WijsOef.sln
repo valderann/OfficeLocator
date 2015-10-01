@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Web", "WijsOef\WijsOef.Web.csproj", "{0EC9954F-1390-4411-833C-956272B4ACFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Web", "WijsOef.Web\WijsOef.Web.csproj", "{0EC9954F-1390-4411-833C-956272B4ACFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Data", "WijsOef.Data\WijsOef.Data.csproj", "{3D6649E9-DF7B-4E94-A2A9-DF25A1492B41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Test", "Woef.Test\WijsOef.Test.csproj", "{9B0DD5EA-D6B5-478C-9D8C-1E615B32F91C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Test", "WijsOef.Test\WijsOef.Test.csproj", "{9B0DD5EA-D6B5-478C-9D8C-1E615B32F91C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Business", "WijsOef.Bussiness\WijsOef.Business.csproj", "{2769F9A1-2BA0-4785-93E3-3BE0523C2AAB}"
 EndProject
