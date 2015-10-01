@@ -56,7 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WijsOef.Bussiness\WijsOef.Business.csproj">
+    <ProjectReference Include="..\WijsOef.Business\WijsOef.Business.csproj">
       <Project>{2769f9a1-2ba0-4785-93e3-3be0523c2aab}</Project>
       <Name>WijsOef.Business</Name>
     </ProjectReference>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Data", "WijsOef.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Test", "WijsOef.Test\WijsOef.Test.csproj", "{9B0DD5EA-D6B5-478C-9D8C-1E615B32F91C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Business", "WijsOef.Bussiness\WijsOef.Business.csproj", "{2769F9A1-2BA0-4785-93E3-3BE0523C2AAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WijsOef.Business", "WijsOef.Business\WijsOef.Business.csproj", "{2769F9A1-2BA0-4785-93E3-3BE0523C2AAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
